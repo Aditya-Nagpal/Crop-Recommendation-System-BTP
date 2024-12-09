@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -7,8 +8,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
   </head>
   <style>
+        body{
+            background: #11998e;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #38ef7d, #11998e);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #38ef7d, #11998e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        }
+        body::-webkit-scrollbar{display: none;}
 		h1 {
-			color: mediumseagreen;
+			/* color: mediumseagreen; */
 			text-align: center;
 		}
 
@@ -18,24 +26,33 @@
 			text-align: center;
 		}
 		.card{
-		margin-left:410px;
-		margin-top: 20px;
-		color: white;
+            color: white;
 		}
 		.container{
-		background:#edf2f7;
-		font-weight: bold;
-		padding-bottom:10px;
-		border-radius: 15px;
+            font-weight: bold;
+            padding-bottom:10px;
+            border-radius: 15px;
 		}
+        .text-white{
+            color: white;
+            font-weight: 300;
+        }
+        .crop-analysis-container{
+            width: 100%;
+        }
+        input[type=number]{
+            background-color: transparent;
+            color: white;
+        }
+        input[type=number]:focus{background-color: transparent; color: white;}
+        input[type=number]::placeholder{color: white;}
 	</style>
 
 
 
 
-  <body style="background:#BCBBB8">
-  <!--=======================navbar=====================================================-->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-transparent" style="border-bottom: 1px solid white;">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">Crop Recommendation</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,62 +61,54 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled">About</a>
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
       </ul>
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <button class="btn btn-outline-success" type="submit" style="background-color: darkgreen; color: white;">Search</button>
       </form>
     </div>
   </div>
 </nav>
 
-<!--==========================================================================================-->
-  <div class="container my-3 mt-3">
-      <h1 class="text-success">Crop Recommendation System <span class="text-success">🌱</span></h1>
+  <div class="container my-4">
+      <h1 class="text-white" style="font-weight: 500; text-transform: uppercase;">Crop Recommendation System </h1>
 
-<!--      adding form-->
       <form action="/predict" method="POST">
           <div class="row">
               <div class="col-md-4">
-					<label for="Nitrogen">Nitrogen</label>
+					<label for="Nitrogen" class="mb-2 text-white">Nitrogen</label>
 					<input type="number" id="Nitrogen" name="Nitrogen" placeholder="Enter Nitrogen" class="form-control" required step="0">
 				</div>
                <div class="col-md-4">
-					<label for="Phosporus">Phosphorus</label>
+					<label for="Phosporus" class="mb-2 text-white">Phosphorus</label>
 					<input type="number" id="Phosporus" name="Phosporus" placeholder="Enter Phosphorus" class="form-control" required step="00">
 				</div>
 				<div class="col-md-4">
-					<label for="Potassium">Potassium</label>
+					<label for="Potassium" class="mb-2 text-white">Potassium</label>
 					<input type="number" id="Potassium" name="Potassium" placeholder="Enter Potassium" class="form-control" required step="0">
 				</div>
           </div>
 
           <div class="row mt-4">
 				<div class="col-md-4">
-					<label for="Temperature">Temperature</label>
+					<label for="Temperature" class="mb-2 text-white" >Temperature</label>
 					<input type="number" step="0.01" id="Temperature" name="Temperature" placeholder="Enter Temperature in °C" class="form-control" required step="0">
 				</div>
 				<div class="col-md-4">
-					<label for="Humidity">Humidity</label>
+					<label for="Humidity" class="mb-2 text-white">Humidity</label>
 					<input type="number" step="0.01" id="Humidity" name="Humidity" placeholder="Enter Humidity in %" class="form-control" required step="0">
 				</div>
 				<div class="col-md-4">
-					<label for="pH">pH</label>
+					<label for="pH" class="mb-2 text-white">pH</label>
 					<input type="number" step="0.01" id="Ph" name="Ph" placeholder="Enter pH value" class="form-control" required step="0">
 				</div>
 			</div>
 
           <div class="row mt-4">
 				<div class="col-md-4">
-					<label for="Rainfall">Rainfall</label>
+					<label for="Rainfall" class="mb-1 text-white">Rainfall</label>
 					<input type="number" step="0.01" id="Rainfall" name="Rainfall" placeholder="Enter Rainfall in mm" class="form-control" required>
 				</div>
 			</div>
@@ -107,37 +116,37 @@
 
 
            <div class="row mt-4">
-
-           <div class="col-md-12 text-center">
-				<button type="submit" class="btn btn-primary btn-lg">Get Recommendation</button>
+                <div class="col-md-12 text-center">
+                    <button type="submit" class="btn" style="background-color: darkslategrey; color: white;">Get Recommendation</button>
+                </div>
 			</div>
-			</div>
+            {% if result %}
+                <div style="width: 100%; display: flex; justify-content: center; padding-top: 15px;">
+                    <div class="card" style="width: 24rem; background-color: transparent;">
+                        <img src="{{ crop_url }}" class="card-img-top" alt="...">
+                        <div class="card-body" style="background-color: darkslategrey; border-radius: 0 0 15px 15px;">
+                            <h5 class="card-title" style="font-weight: 300;">Recommended crop for cultivation is:</h5>
+                            <p class="card-text" style="font-weight: 300;">{{ result }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
       </form>
 
-
-
-       {% if result %}
-		<div class="card bg-dark" style="width: 18rem;">
-		  <img src="{{ crop_url }}" class="card-img-top" alt="...">
-		  <div class="card-body">
-			<h5 class="card-title">Recommend Crop for cultivation is:</h5>
-			<p class="card-text">{{ result }}</p>
-		  </div>
-		</div>
-	   {% endif %}
-
 	   {% if N_result and P_result and K_result %}
-		<div>
-			<h2>Crop analysis</h2>
-			<div>
-				<p>Nitrogen : {{N_result}}</p>
-			</div>
-			<div>
-				<p>Phosporous : {{P_result}}</p>
-			</div>
-			<div>
-				<p>Potassium : {{K_result}}</p>
-			</div>
+		<div class="text-white crop-analysis-container">
+			<p style="text-transform: uppercase; text-decoration: underline; font-size: 35px; font-weight: 500;">Crop analysis</p>
+			<div style="display: flex; justify-content: space-between;">
+                <div style="font-size: 24px;">
+                    <p>Nitrogen : {{N_result}}</p>
+                </div>
+                <div style="font-size: 24px;">
+                    <p>Phosporous : {{P_result}}</p>
+                </div>
+                <div style="font-size: 24px;">
+                    <p>Potassium : {{K_result}}</p>
+                </div>
+            </div>
 		</div>
 	   {% endif %}
   </div>

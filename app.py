@@ -31,7 +31,7 @@ def GetImageURL(crop):
               "papaya": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGDlhohW4uBYguzppHOAG5hKPYgdqRtE4Alw&s",
               "pigeonpeas": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqcl-qbVAZN2dVLnOb2sKYa7fZeVRCAdGEhQ&s",
               "pomegranate": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd4pexxp_Z31nXPw4ufNq1xn_24qMBq12gYw&s",
-              "rice": "https://www.shutterstock.com/image-photo/paddy-fields-rice-rural-scenery-260nw-2399921505.jpg",
+              "rice": "https://media.istockphoto.com/id/622925154/photo/ripe-rice-in-the-field-of-farmland.jpg?s=612x612&w=0&k=20&c=grtA7L3dm_SP80Fdt-PpIwu5GYacZygErTDUDNIKHwY=",
               "watermelon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoqrczkzxkV9K7mqTCSto9ME02mNG42bGH3A&s"
             }
     return crop_url[crop]
